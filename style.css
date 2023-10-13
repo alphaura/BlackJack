@@ -58,16 +58,6 @@ body {
      margin-bottom: 2rem;
 }
 
-
-
-/* <div class="cards-container">
-                    <div class="cards">
-                        <img src="assets/img/blackjackcard.png" alt="BlackJack card">
-                        <div class="card-number">0</div>
-                    </div> */
-
-/* Button Section */
-
 .button-triggers {
     display: flex;
     flex-direction: column;
@@ -88,6 +78,7 @@ button, #trigger-section {
 
 button:hover {
     cursor: pointer;
+    border: .2rem rgb(237, 179, 32) solid;
 }
 
 button:active {

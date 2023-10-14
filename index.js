@@ -10,6 +10,7 @@ let player = document.getElementById("player")y
 let buttonMessage = ""
 let triggerMessage = ""
 let triggerSection = document.getElementById("trigger-section")
+let startOrHit = document.getElementById("hit-button")
 
 dealerCountEl = 0
 playerCountEl = 0
@@ -17,7 +18,7 @@ playerCountEl = 0
 
 
 
-let getRandomCard() {
+function getRandomCard() {
     let randomCard = Math.floor ( Math.random() * 10 ) + 1
 }
 
@@ -34,12 +35,12 @@ function gameStart() {
 }
 
 function gamePlay() {
-    for (let i = 0; i > dealerCards; i++) {
+    for (let i = 0; i < dealerCards; i++) {
         dealer.textContent = dealerCards[i] + " "
     }
 
-    for ( let x = 0; x > playerCards; x++) {
-        player.textContent = playerCards[x] + " "
+    for ( let i = 0; i < playerCards; i++) {
+        player.textContent = playerCards[i] + " "
     }
 
     if ( playerCountEl > 21 && dealerCountEl > 21 ) {
@@ -60,8 +61,13 @@ function gamePlay() {
 
 function hitMe() {
     if (startGame === false) {
+        buttonMessage = "Start Game"
+        startOrHit = buttonMessage
         gameStart()
+        
     } else {
+        buttonMessage = "Hit Me"
+        startOrHit = buttonMessage
         let card = getRandomCard()
         playerCountEl += card
         playerCards.push(card)
@@ -69,6 +75,8 @@ function hitMe() {
         gamePlay()
     }
 }
+
+hitMe()
 
 function stay() {
 

@@ -40,23 +40,6 @@ body {
 
 }
 
-.cards {
-    min-width: 10rem;
-    min-height: 20rem;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    border: 3px solid black;
-    box-shadow:
-     black 0 10px 10px,
-     black 0 20px 20px,
-     black 0 40px 40px;
-     margin-bottom: 2rem;
-}
 
 .button-triggers {
     display: flex;

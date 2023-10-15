@@ -20,9 +20,11 @@ playerCountEl = 0
 
 function getRandomCard() {
     let randomCard = Math.floor ( Math.random() * 10 ) + 1
+    return randomCard
 }
 
 function gameStart() {
+    startGame = false
     let dealerFirstCard = getRandomCard()
     let playerFirstCard = getRandomCard()
     let playerSecondCard = getRandomCard()
@@ -30,17 +32,17 @@ function gameStart() {
     playerCards = [playerFirstCard, playerSecondCard]
     dealerCountEl = dealerFirstCard
     playerCountEl = playerFirstCard + playerSecondCard
-    dealer = dealerFirstCard
-    player = playerFirstCard + " " + playerSecondCard
+    dealer.textContent = dealerFirstCard
+    player.textContent = playerFirstCard + " " + playerSecondCard
 }
 
 function gamePlay() {
     for (let i = 0; i < dealerCards; i++) {
-        dealer.textContent = dealerCards[i] + " "
+        dealer.textContent += dealerCards[i] + " "
     }
 
     for ( let i = 0; i < playerCards; i++) {
-        player.textContent = playerCards[i] + " "
+        player.textContent += playerCards[i] + " "
     }
 
     if ( playerCountEl > 21 && dealerCountEl > 21 ) {
@@ -55,19 +57,19 @@ function gamePlay() {
         triggerMessage = "Dealer busted!"
     }
 
-    triggerSection = triggerMessage
+    triggerSection.textContent = triggerMessage
 }
 
 
 function hitMe() {
     if (startGame === false) {
         buttonMessage = "Start Game"
-        startOrHit = buttonMessage
+        startOrHit.textContent = buttonMessage
         gameStart()
         
     } else {
         buttonMessage = "Hit Me"
-        startOrHit = buttonMessage
+        startOrHit.textContent = buttonMessage
         let card = getRandomCard()
         playerCountEl += card
         playerCards.push(card)
@@ -76,8 +78,9 @@ function hitMe() {
     }
 }
 
-hitMe()
 
 function stay() {
 
 }
+
+hitMe()

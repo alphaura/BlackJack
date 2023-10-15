@@ -2,6 +2,7 @@ let dealerCards = []
 let playerCards = []
 isAlive = false
 hasBlackJack = false
+dealerBusted = false
 let dealerHand = document.getElementById("dealer")
 let playerHand = document.getElementById("player")
 let dealerSum = 0
@@ -10,6 +11,8 @@ let triggerMessage = ""
 let dealerCount = document.getElementById("dealer-count")
 let playerCount = document.getElementById("player-count")
 let trigger = document.getElementById("trigger-section")
+let gameStart = false
+
 
 function getRandomCard() {
     let randomCard = Math.floor ( Math.random() *10 ) + 1
@@ -17,25 +20,28 @@ function getRandomCard() {
 }
 
 function startGame () {
-    isAlive = true
-    let dealerFirstCard = getRandomCard()
-    let playerFirstCard = getRandomCard()
-    let playerSecondCard = getRandomCard()
-
-    dealerCards = [dealerFirstCard]
-    playerCards = [playerFirstCard, playerSecondCard]
-    dealerSum = dealerFirstCard
-    playerSum = playerFirstCard + playerSecondCard
-    gamePlay()
+    
+    if (gameStart === false) {
+        isAlive = true
+        let dealerFirstCard = getRandomCard()
+        let playerFirstCard = getRandomCard()
+        let playerSecondCard = getRandomCard()
+    
+        dealerCards = [dealerFirstCard]
+        playerCards = [playerFirstCard, playerSecondCard]
+        dealerSum = dealerFirstCard
+        playerSum = playerFirstCard + playerSecondCard
+        gamePlay()
+    }
 }
 
 function gamePlay() {
     for ( let i = 0; i < dealerCards.length; i++) {
-        dealerHand.textContent = dealerCards[i] + " "
+        dealerHand.textContent += dealerCards[i] + " "
     }
 
     for ( let i = 0; i < playerCards.length; i ++) {
-        playerHand.textContent = playerCards[i] + " "
+        playerHand.textContent += playerCards[i] + " "
     }
 
     dealerCount.textContent = dealerSum
@@ -43,14 +49,37 @@ function gamePlay() {
 
     if ( dealerSum < 21 && playerSum < 21 ) {
         triggerMessage = "What's your next move?"
-        isAlive= true
-    }   else if ( (dealerSum < 21 || dealerSum > 21) && playerSum === 21 ) {
+        gameStart = true
+    }   else if ( playerSum === 21 ) {
         triggerMessage = "You've got blackjack baby!"
         hasBlackJack = true
     } else if ( playerSum > 21 ) {
         triggerMessage = "You're out!"
         isAlive = false
+    } else if ( dealerSum > 21 ) {
+        triggerMessage = "Dealer Busted!"
+        dealerBusted = true
     }
 
     trigger.textContent = triggerMessage
+}
+
+function hitMe() {
+    if ( isAlive === true && hasBlackJack === false ) {
+        let playerNewCard = getRandomCard()
+        playerSum += playerNewCard
+        playerCards.push(playerNewCard)
+        gamePlay()
+    }
+}
+
+function hitDealer() {
+
+    if ( dealerBusted === true ) {
+        let dealerNewcard = getRandomCard()
+        dealerSum += dealerNewcard
+        dealerCards.push(dealerNewcard)
+        gamePlay()
+    }
+    
 }

@@ -36,11 +36,11 @@ function startGame () {
 }
 
 function gamePlay() {
-    for ( let i = 0; i < dealerCards.length; i++) {
+    for ( let i = 0; i < dealerCards.length; i++ ) {
         dealerHand.textContent += dealerCards[i] + " "
     }
 
-    for ( let i = 0; i < playerCards.length; i ++) {
+    for ( let i = 0; i < playerCards.length; i ++ ) {
         playerHand.textContent += playerCards[i] + " "
     }
 
@@ -57,15 +57,17 @@ function gamePlay() {
         triggerMessage = "You're out!"
         isAlive = false
     } else if ( dealerSum > 21 ) {
-        triggerMessage = "Dealer Busted!"
+        triggerMessage = "Dealer Busted, you won!"
         dealerBusted = true
+    } else if ( dealerSum === 21 && playerSum < 21 ) {
+        triggerMessage = "Dealer Won!"
     }
 
     trigger.textContent = triggerMessage
 }
 
 function hitMe() {
-    if ( isAlive === true && hasBlackJack === false ) {
+    if ( isAlive === true && hasBlackJack === false && dealerBusted === false && dealerSum < 21) {
         let playerNewCard = getRandomCard()
         playerSum += playerNewCard
         playerCards.push(playerNewCard)
@@ -75,10 +77,10 @@ function hitMe() {
 
 function hitDealer() {
 
-    if ( dealerBusted === true ) {
-        let dealerNewcard = getRandomCard()
-        dealerSum += dealerNewcard
-        dealerCards.push(dealerNewcard)
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 21) {
+        let dealerNewCard = getRandomCard()
+        dealerSum += dealerNewCard
+        dealerCards.push(dealerNewCard)
         gamePlay()
     }
     

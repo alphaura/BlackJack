@@ -139,6 +139,7 @@ function finishGame() {
 
 function startOver() {
     if ( gameOver === true ) {
+        isAlive = false
         dealerSum = 0
         playerSum = 0
         playerHand.textContent = " "

@@ -36,11 +36,14 @@ function startGame () {
 }
 
 function gamePlay() {
+    dealerHand.textContent = " "
+    playerHand.textContent = " "
+
     for ( let i = 0; i < dealerCards.length; i++ ) {
         dealerHand.textContent += dealerCards[i] + " "
     }
 
-    for ( let i = 0; i < playerCards.length; i ++ ) {
+    for ( let i = 0; i < playerCards.length; i++ ) {
         playerHand.textContent += playerCards[i] + " "
     }
 

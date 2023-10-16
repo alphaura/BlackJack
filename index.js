@@ -83,5 +83,20 @@ function hitDealer() {
         dealerCards.push(dealerNewCard)
         gamePlay()
     }
+}
+
+function finishGame() {
+
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 21 ) {
+        if ( dealerSum < playerSum) {
+            triggerMessage = "You have a higher pair than the dealer, you win!"
+        } else if ( dealerSum > playerSum ) {
+            triggerMessage = "Dealer's pair is higher than yours, dealer wins!"
+        } else if ( dealerSum === playerSum ) {
+            triggerMessage = "It's a draw!"
+        }
+
+        trigger.textContent = triggerMessage
+    }
     
 }

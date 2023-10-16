@@ -15,8 +15,9 @@ body, h1 , h2, h3 , h4, h5, h6, p {
 }
 
 body {
-    background-image: url(assets/img/bg-390.png);
+    background-image: url(assets/img/pokertable2.jpg);
     background-size: cover;
+    background-position: center right 50%;
     height: 100dvh;
     height: 100vh;
     font-family: 'Josefin Sans', sans-serif;
@@ -35,6 +36,7 @@ h2 {
 
 #dealer-count, #player-count {
     font-size: 1rem;
+    font-weight: bold;
 }
 
 .title {
@@ -43,6 +45,7 @@ h2 {
     gap: 0 1rem;
     align-items: center;
     margin-block: 2rem;
+    font-weight: bold;
 }
 
 .cards-container {
@@ -71,10 +74,23 @@ button, #trigger-section {
     padding: 1rem;
     margin: 1rem;
     border-radius: 2rem;
+    font-weight: bold;
 }
 
 #trigger-section {
     min-width: 19.4rem;
+    background-color: white;
+    color: black;
+    line-height: 1.2rem;
+}
+
+#finish-button {
+    background-color: white;
+    color: black;
+}
+
+#finish-button:active {
+    background-color: rgb(237, 179, 32);
 }
 
 button {

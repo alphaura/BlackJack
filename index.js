@@ -67,7 +67,7 @@ function gamePlay() {
 }
 
 function hitMe() {
-    if ( isAlive === true && hasBlackJack === false && dealerBusted === false && dealerSum < 21) {
+    if ( isAlive === true && hasBlackJack === false && dealerBusted === false && dealerSum < 17 ) {
         let playerNewCard = getRandomCard()
         playerSum += playerNewCard
         playerCards.push(playerNewCard)
@@ -77,7 +77,7 @@ function hitMe() {
 
 function hitDealer() {
 
-    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 21) {
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 17 ) {
         let dealerNewCard = getRandomCard()
         dealerSum += dealerNewCard
         dealerCards.push(dealerNewCard)

@@ -18,17 +18,57 @@ body {
     background-image: url(assets/img/pokertable2.jpg);
     background-size: cover;
     background-position: center right 50%;
-    height: 100dvh;
-    height: 100vh;
+    min-height: 100dvh;
+    min-height: 100vh;
     font-family: 'Josefin Sans', sans-serif;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    display: grid;
+    place-items: center;
 }
 
+/* Instructions Section */
+
+#instructions {
+    max-width: 18rem;
+    background-color: rgb(127, 127, 127);
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+#instructions p {
+    line-height: 1.5rem;
+    margin-block: 1rem;
+    font-size: 1rem;
+}
+
+li {
+    margin-block-end: 1rem;
+    font-size: 1rem;
+}
+
+#toggle {
+    background-color: white;
+    color: black;
+    max-height: 100%;
+    display: block;
+    margin: 2rem auto;
+
+}
+
+h1, h3 {
+    font-size: 1.4rem;
+}
+
+
+
 /* Dealer/ Player Section */
+
+.blackjack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 h2 {
     font-size: 1.5rem;
@@ -67,7 +107,7 @@ h2 {
 }
 
 button, #trigger-section {
-    background-color: black;
+    background-color: rgb(127, 127, 127);
     border: none;
     color: white;
     text-align: center;
@@ -100,11 +140,33 @@ button {
 
 button:hover {
     cursor: pointer;
-    border: .2rem rgb(237, 179, 32) solid;
+    border: 2px rgb(194, 206, 22) solid;
 }
 
 button:active {
-    background-color: rgb(237, 179, 32);
+    background-color: rgb(194, 206, 22);
 }
 
+
+@media ( min-width: 500px ) {
+    /* Instructions Section */
+
+#instructions {
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+h1, h3 {
+    font-size: 2rem;
+}
+
+}
+
+@media ( min-width: 768px ) {
+    /* Instructions Section */
+
+#instructions {
+    max-width: 40rem;
+}
+}
 

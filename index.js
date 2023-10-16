@@ -14,6 +14,16 @@ let trigger = document.getElementById("trigger-section")
 let startButton = document.getElementById("start-button")
 let gameStart = false
 let gameOver = false
+let instructions = document.getElementById("instructions")
+
+function toggleInstructions() {
+
+    if (instructions.style.display === "none"){
+        instructions.style.display = "block"
+    } else {
+        instructions.style.display = "none"
+    }
+} 
 
 
 //getRandomCard function helps in having a fair game by generating random numbers to every card dealt.
@@ -103,7 +113,7 @@ function hitMe() {
 
 function hitDealer() {
 
-    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 17 ) {
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 17 && playerSum > 17) {
         let dealerNewCard = getRandomCard()
         dealerSum += dealerNewCard
         dealerCards.push(dealerNewCard)

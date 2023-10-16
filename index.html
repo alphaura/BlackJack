@@ -28,10 +28,15 @@
             </div>
 
             <div class="button-triggers">
-                <button id="start-button" onclick="startGame()" class="startGame">Start Game!</button>
+                <div class="button-flex">
+                    <button id="start-button" onclick="startGame()" class="startGame">Start Game!</button>
+                    <button id="restart-button" onclick="startOver()" class="startOver">Start Over?</button>
+                </div>
                 <p id="trigger-section">What's your next move?</p>
-                <button id="hit-button" onclick="hitMe()">Hit Me!</button>
-                <button id="stay-button" onclick="hitDealer()">Stay</button>
+                <div class="button-flex">
+                    <button id="hit-button" onclick="hitMe()">Hit Me!</button>
+                    <button id="stay-button" onclick="hitDealer()">Stay</button>
+                </div>
                 <button id="finish-button" onclick="finishGame()">End Game</button>
             </div>
 

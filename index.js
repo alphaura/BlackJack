@@ -35,7 +35,7 @@ function getRandomCard() {
     return randomCard
 }
 
-//startGame function takes care of actually starting the game from the very first time, and was linked to the startOver function to provide an easier gameplay.
+//startGame function takes care of actually starting the game from the very first time, and was linked to the startOver function to provide an easier game play.
 
 function startGame () {
     

@@ -16,6 +16,8 @@ let gameStart = false
 let gameOver = false
 let instructions = document.getElementById("instructions")
 
+//toggleInstructions shows and hides the instruction div. It's there to help the player understand the functionality of the game and to also not be an obstruction.
+
 function toggleInstructions() {
 
     if (instructions.style.display === "none"){
@@ -100,7 +102,7 @@ function gamePlay() {
 //to the individual hand as well. The function is conditioned to only work if a specific state is met.
 
 function hitMe() {
-    if ( isAlive === true && hasBlackJack === false && dealerBusted === false && dealerSum < 17 ) {
+    if ( isAlive === true && hasBlackJack === false && dealerBusted === false && dealerSum < 11 ) {
         let playerNewCard = getRandomCard()
         playerSum += playerNewCard
         playerCards.push(playerNewCard)

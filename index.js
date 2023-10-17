@@ -115,7 +115,7 @@ function hitMe() {
 
 function hitDealer() {
 
-    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 17 && playerSum > 17) {
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && ( dealerSum < 17 && playerSum > 16 ) ) {
         let dealerNewCard = getRandomCard()
         dealerSum += dealerNewCard
         dealerCards.push(dealerNewCard)
@@ -129,7 +129,7 @@ function hitDealer() {
 
 function finishGame() {
 
-    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && dealerSum < 21 ) {
+    if ( dealerBusted === false && gameStart === true && isAlive === true && hasBlackJack === false && ( dealerSum > 17 && dealerSum < 21 ) ) {
         if ( dealerSum < playerSum) {
             triggerMessage = "You have a higher hand than the dealer, you win!"
             gameOver = true

@@ -35,24 +35,6 @@ function getRandomCard() {
     return randomCard
 }
 
-//startGame function takes care of actually starting the game from the very first time, and was linked to the startOver function to provide an easier game play.
-
-function startGame () {
-    
-    if (gameStart === false) {
-        isAlive = true
-        let dealerFirstCard = getRandomCard()
-        let playerFirstCard = getRandomCard()
-        let playerSecondCard = getRandomCard()
-    
-        dealerCards = [dealerFirstCard]
-        playerCards = [playerFirstCard, playerSecondCard]
-        dealerSum = dealerFirstCard
-        playerSum = playerFirstCard + playerSecondCard
-        gamePlay()
-    }
-}
-
 //gamePlay function takes care of how most of the general game is played;
 
 //It resets the hands both sides have to an empty string to then display the array of cards being randomly generated in the dealerCards and playerCards.
@@ -97,6 +79,26 @@ function gamePlay() {
 
     trigger.textContent = triggerMessage
 }
+
+//startGame function takes care of actually starting the game from the very first time, and was linked to the startOver function to provide an easier game play.
+
+function startGame () {
+    
+    if (gameStart === false) {
+        isAlive = true
+        let dealerFirstCard = getRandomCard()
+        let playerFirstCard = getRandomCard()
+        let playerSecondCard = getRandomCard()
+    
+        dealerCards = [dealerFirstCard]
+        playerCards = [playerFirstCard, playerSecondCard]
+        dealerSum = dealerFirstCard
+        playerSum = playerFirstCard + playerSecondCard
+        gamePlay()
+    }
+}
+
+
 
 //hitMe function is linked to the player's side, where when the player decides to take a card, it randomly pushes a new card to the total and 
 //to the individual hand as well. The function is conditioned to only work if a specific state is met.

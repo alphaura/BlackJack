@@ -15,6 +15,7 @@ body, h1 , h2, h3 , h4, h5, h6, p {
 }
 
 body {
+    user-select: none;
     background-image: url(assets/img/pokertable2.jpg);
     background-size: cover;
     background-position: center right 50%;
@@ -144,10 +145,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    border: 2px rgb(194, 206, 22) solid;
-}
-
-button:active {
+    /* border: 2px rgb(194, 206, 22) solid; */
     background-color: rgb(194, 206, 22);
 }
 
